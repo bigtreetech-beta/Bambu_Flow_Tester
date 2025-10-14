@@ -320,7 +320,7 @@ export function gcodeToSvg(gcode: string, opts: SvgOptions = {}): string {
       // console.log("M117 message:", msg);
       // Extract temperature, flow, and F value
       // temperature data sometimes present but unused in preview
-      /* const tempMatch = msg.match(/([0-9]+(?:\.[0-9]+)?)\s*°C/i); */
+      const tempMatch = msg.match(/([0-9]+(?:\.[0-9]+)?)\s*°C/i);
       const flowMatch = msg.match(/([0-9]+(?:\.[0-9]+)?)\s*mm3\/s/i);
       const fMatch = msg.match(/F\s*([0-9]+(?:\.[0-9]+)?)\s*mm\/min/i);
 
@@ -328,7 +328,7 @@ export function gcodeToSvg(gcode: string, opts: SvgOptions = {}): string {
       // if (tempMatch) label += `${tempMatch[1]}ºC`;
       if (flowMatch) label += (label ? " - " : "") + `F ${flowMatch[1]}`;
       if (fMatch) label += (label ? " - " : "") + `FR ${fMatch[1]}`;
-
+      if (tempMatch) label += (label ? " - " : "") + `T ${tempMatch[1]}`;
       if (label) pendingLabel = label;
       continue;
     }

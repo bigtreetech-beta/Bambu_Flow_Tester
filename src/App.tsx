@@ -57,7 +57,8 @@ function App() {
     startFlow: 8,
     offset: 2,
     steps: 20,
-    startTemperature: 200,
+    startTemp: 200,
+    tempOffset: 20,
     endFlow: 0,
     stabilizationTime: 20,
     primeLength: 25,
@@ -89,6 +90,8 @@ function App() {
       flowSteps,
       endFlow: computedEndFlow,
     } as any;
+
+    console.log("Generating aaa with values:", rawValues);
 
     const result = generateGcode(selectedPrinterIndex, rawValues);
 
@@ -679,8 +682,8 @@ function App() {
               />
               <InputNumber
                 label="Start Temperature (°C):"
-                value={settings.startTemperature}
-                onChange={(v) => handleSettingChange("startTemperature", v)}
+                value={settings.startTemp}
+                onChange={(v) => handleSettingChange("startTemp", v)}
               />
               <InputNumber
                 label="Fan Speed (%):"
