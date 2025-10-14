@@ -49,7 +49,7 @@ export const printers = [
     ySpacing: 25,
   },
   {
-    model: "HSS",
+    model: "H2S",
     buildVolume: {
       width: 340,
       depth: 320,
