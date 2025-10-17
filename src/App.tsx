@@ -66,7 +66,7 @@ function App() {
     primeSpeed: 5,
     wipeLength: 15,
     blobHeight: 10,
-    extrusionAmount: 200,
+    extrusionAmount: 300,
     comment: "Ender-3",
     xSpacing: 20,
     ySpacing: 20,
@@ -752,8 +752,8 @@ function App() {
           </details>
 
           {/* Blob Settings */}
-          <div hidden>
-            <h3>Blob Settings</h3>
+          <details>
+            <summary>Blob Settings</summary>
             <div
               style={{
                 display: "flex",
@@ -761,18 +761,18 @@ function App() {
                 gap: "0.5rem",
               }}
             >
-              <InputNumber
+              {/* <InputNumber 
                 label="Blob Height (mm):"
                 value={settings.blobHeight}
                 onChange={(v) => handleSettingChange("blobHeight", v)}
-              />
+              /> */}
               <InputNumber
                 label="Extrusion Amount (mm):"
                 value={settings.extrusionAmount}
                 onChange={(v) => handleSettingChange("extrusionAmount", v)}
               />
             </div>
-          </div>
+          </details>
 
           {/* Spacing Settings */}
           <details>
